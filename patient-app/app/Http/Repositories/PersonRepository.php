@@ -1,7 +1,9 @@
 <?php
 namespace App\Http\Repositories;
 
+use App\Models\Medical;
 use App\Models\Person;
+use Exception;
 
 class PersonRepository
 {
@@ -35,6 +37,16 @@ class PersonRepository
     public function delete(int $id): bool
     {
         return Person::where(['id' => $id])->delete();
+    }
+
+    /**
+     * @param string $idCard
+     * 
+     * @return Person
+     */
+    public function byIdCard(string $idCard): Person
+    {
+            return Person::where(['id_card' => $idCard])->first();        
     }
 
 }

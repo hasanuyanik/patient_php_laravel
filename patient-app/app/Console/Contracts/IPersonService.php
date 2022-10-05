@@ -26,4 +26,11 @@ interface IPersonService
      * @return bool
      */
     public function delete(int $id): bool;
+
+    /**
+     * @param string $idCard
+     * 
+     * @return Person
+     */
+    public function byIdCard(string $idCard): Person;
 }

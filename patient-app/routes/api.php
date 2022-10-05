@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PersonController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,15 @@ Route::controller(AuthController::class)->group(function() {
     Route::post('login', 'login');
 });
 
-Route::middleware('auth:sanctum')->controller(PatientController::class)->group(function() {
-    Route::post('import', 'import');
+Route::middleware('auth:sanctum')->group(function (){
+    Route::prefix('patient')->controller(PatientController::class)->group(function() {
+        Route::post('import', 'import');
+    });
+
+    Route::prefix('person')->controller(PersonController::class)->group(function() {
+        Route::post('create', 'create');
+        Route::put('update/{id}', 'update');
+        Route::put('delete/{id}', 'delete');
+        Route::get('{idCard}', 'byIdCard');
+    });
 });

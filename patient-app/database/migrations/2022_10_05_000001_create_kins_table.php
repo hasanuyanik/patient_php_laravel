@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('kin_id_card');
             $table->timestamps();
 
-            $table->foreign('kin_id_card')->references('id_card')->on('persons');
+            $table->foreign('kin_id_card')->references('id_card')->on('people');
         });
     }
 

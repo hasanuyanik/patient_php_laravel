@@ -30,7 +30,7 @@ class Person extends Model
     /**
      * Get the user in the organization
      */
-    public function kin()
+    public function kins()
     {
         return $this->hasOne(Kin::class, 'id_card', 'id_card');
     }

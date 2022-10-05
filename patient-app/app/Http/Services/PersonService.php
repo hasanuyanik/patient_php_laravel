@@ -50,4 +50,14 @@ class PersonService implements IPersonService
     {
         return $this->repository->delete($id);
     }
+
+    /**
+     * @param string $idCard
+     * 
+     * @return Person
+     */
+    public function byIdCard(string $idCard): Person
+    {
+        return $this->repository->byIdCard($idCard);
+    }
 }
