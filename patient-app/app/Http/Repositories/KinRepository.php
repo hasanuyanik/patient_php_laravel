@@ -2,6 +2,7 @@
 namespace App\Http\Repositories;
 
 use App\Models\Kin;
+use Illuminate\Database\Eloquent\Collection;
 
 class KinRepository
 {
@@ -28,13 +29,33 @@ class KinRepository
     }
 
     /**
-     * @param int $id
+     * @param array $datas
      * 
      * @return bool
      */
-    public function delete(int $id): bool
+    public function delete(array $datas): bool
     {
-        return Kin::where(['id' => $id])->delete();
+        return Kin::where($datas)->delete();
+    }
+
+    /**
+     * @param string $idCard
+     * 
+     * @return Collection
+     */
+    public function byIdCard(string $idCard): Collection
+    {
+            return Kin::with(['person'])->where(['id_card' => $idCard])->get();        
+    }
+
+    /**
+     * @param string $idCard
+     * 
+     * @return Collection
+     */
+    public function byKinIdCard(string $idCard): Collection
+    {
+            return Kin::with(['person'])->where(['kin_id_card' => $idCard])->get();        
     }
 
 }

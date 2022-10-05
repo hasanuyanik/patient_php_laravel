@@ -2,6 +2,7 @@
 namespace App\Console\Contracts;
 
 use App\Models\Kin;
+use Illuminate\Database\Eloquent\Collection;
 
 interface IKinService
 {
@@ -21,9 +22,23 @@ interface IKinService
     public function update(int $id, array $datas);
 
     /**
-     * @param int $id
+     * @param array $datas
      * 
      * @return bool
      */
-    public function delete(int $id): bool;
+    public function delete(array $datas): bool;
+
+    /**
+     * @param string $idCard
+     * 
+     * @return Collection
+     */
+    public function byIdCard(string $idCard): Collection;
+
+    /**
+     * @param string $idCard
+     * 
+     * @return Collection
+     */
+    public function byKinIdCard(string $idCard): Collection;
 }

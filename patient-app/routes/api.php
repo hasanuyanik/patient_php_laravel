@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KinController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PersonController;
 use Illuminate\Http\Request;
@@ -32,5 +33,12 @@ Route::middleware('auth:sanctum')->group(function (){
         Route::put('update/{id}', 'update');
         Route::put('delete/{id}', 'delete');
         Route::get('{idCard}', 'byIdCard');
+    });
+
+    Route::prefix('kin')->controller(KinController::class)->group(function() {
+        Route::post('create', 'create');
+        Route::put('delete', 'delete');
+        Route::get('{idCard}', 'byIdCard');
+        Route::get('k/{idCard}', 'byKinIdCard');
     });
 });

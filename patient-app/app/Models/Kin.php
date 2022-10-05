@@ -19,4 +19,12 @@ class Kin extends Model
         'id_card',
         'kin_id_card'
     ];
+
+    /**
+     * Get the user in the organization
+     */
+    public function person()
+    {
+        return $this->hasOne(Person::class, 'id_card', 'kin_id_card');
+    }
 }
