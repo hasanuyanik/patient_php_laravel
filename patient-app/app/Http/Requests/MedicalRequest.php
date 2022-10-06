@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PersonRequest extends FormRequest
+class MedicalRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,12 @@ class PersonRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_card' => 'required|string',
-            'gender' => 'required|in:male,female',
+            'patient_id' => 'required',
             'name' => 'required|string',
-            'surname' => 'required|string',
-            'date_of_birth' => 'required|string',
-            'address' => 'required|string',
-            'post_code' => 'required|string',
-            'contact_number_1' => 'required|string',
-            'contact_number_2' => 'required|string'
+            'notes' => 'string',
+            'type' => 'required|in:Conditions,Alergies,Medication',
+            'start_date' => 'string',
+            'end_date' => 'string'
         ];
     }
 }

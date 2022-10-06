@@ -4,6 +4,7 @@ namespace App\Http\Services;
 use App\Console\Contracts\IMedicalService;
 use App\Http\Repositories\MedicalRepository;
 use App\Models\Medical;
+use Illuminate\Database\Eloquent\Collection;
 
 class MedicalService implements IMedicalService
 {
@@ -49,5 +50,15 @@ class MedicalService implements IMedicalService
     public function delete(int $id): bool
     {
         return $this->repository->delete($id);
+    }
+
+    /**
+     * @param int $id
+     * 
+     * @return Collection
+     */
+    public function byPatientId(int $id): Collection
+    {
+        return $this->repository->byPatientId($id);
     }
 }

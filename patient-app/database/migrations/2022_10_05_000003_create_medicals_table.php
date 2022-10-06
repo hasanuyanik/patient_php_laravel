@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('patient_id');
             $table->string('name');
-            $table->string('notes');
+            $table->string('notes')->nullable();
             $table->enum('type', ['Conditions', 'Alergies', 'Medication']);
-            $table->datetime('start_date');
-            $table->datetime('end_date');
+            $table->datetime('start_date')->nullable();
+            $table->datetime('end_date')->nullable();
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients');

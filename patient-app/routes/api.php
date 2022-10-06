@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KinController;
+use App\Http\Controllers\MedicalController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PersonController;
 use Illuminate\Http\Request;
@@ -40,5 +41,12 @@ Route::middleware('auth:sanctum')->group(function (){
         Route::put('delete', 'delete');
         Route::get('{idCard}', 'byIdCard');
         Route::get('k/{idCard}', 'byKinIdCard');
+    });
+
+    Route::prefix('medical')->controller(MedicalController::class)->group(function() {
+        Route::post('create', 'create');
+        Route::put('update/{id}', 'update');
+        Route::put('delete/{id}', 'delete');
+        Route::get('{patientId}', 'byPatientId');
     });
 });

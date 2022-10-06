@@ -2,6 +2,8 @@
 namespace App\Http\Repositories;
 
 use App\Models\Medical;
+use Illuminate\Database\Eloquent\Collection;
+use PhpParser\ErrorHandler\Collecting;
 
 class MedicalRepository
 {
@@ -35,6 +37,16 @@ class MedicalRepository
     public function delete(int $id): bool
     {
         return Medical::where(['id' => $id])->delete();
+    }
+
+    /**
+     * @param int $id
+     * 
+     * @return Collection
+     */
+    public function byPatientId(int $id): Collection
+    {
+        return Medical::where(['patient_id' => $id])->get()->groupBy('type');
     }
 
 }
