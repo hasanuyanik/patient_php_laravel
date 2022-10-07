@@ -26,6 +26,11 @@ Route::controller(AuthController::class)->group(function() {
 
 Route::middleware('auth:sanctum')->group(function (){
     Route::prefix('patient')->controller(PatientController::class)->group(function() {
+        Route::post('create', 'create');
+        Route::put('update/{id}', 'update');
+        Route::put('delete/{id}', 'delete');
+        Route::get('list', 'list');
+        Route::get('{patientId}', 'byPatientId');
         Route::post('import', 'import');
     });
 

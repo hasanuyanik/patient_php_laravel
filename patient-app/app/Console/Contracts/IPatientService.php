@@ -2,6 +2,7 @@
 namespace App\Console\Contracts;
 
 use App\Models\Patient;
+use Illuminate\Database\Eloquent\Collection;
 
 interface IPatientService
 {
@@ -26,4 +27,18 @@ interface IPatientService
      * @return bool
      */
     public function delete(int $id): bool;
+
+    /**
+     * @param int $id
+     * 
+     * @return Patient|null
+     */
+    public function byPatientId(int $id): ?Patient;
+
+    /**
+     * @param int $id
+     * 
+     * @return Collection
+     */
+    public function list(): Collection;
 }

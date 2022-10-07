@@ -16,7 +16,7 @@ class Patient extends Model
      */
     protected $fillable = [
         'id',
-        'person_id'
+        'id_card'
     ];
 
     /**
@@ -24,7 +24,15 @@ class Patient extends Model
      */
     public function person()
     {
-        return $this->hasOne(Person::class, 'person_id', 'id');
+        return $this->hasOne(Person::class, 'id_card', 'id_card');
+    }
+
+    /**
+     * Get the user in the organization
+     */
+    public function kin()
+    {
+        return $this->hasMany(Kin::class, 'id_card', 'id_card');
     }
 
     /**
@@ -32,7 +40,7 @@ class Patient extends Model
      */
     public function medical()
     {
-        return $this->hasOne(Medical::class, 'id', 'patient_id');
+        return $this->hasMany(Medical::class, 'patient_id', 'id');
     }
 
 }

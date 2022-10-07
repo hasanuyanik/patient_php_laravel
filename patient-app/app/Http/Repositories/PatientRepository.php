@@ -2,6 +2,7 @@
 namespace App\Http\Repositories;
 
 use App\Models\Patient;
+use Illuminate\Database\Eloquent\Collection;
 
 class PatientRepository
 {
@@ -37,4 +38,23 @@ class PatientRepository
         return Patient::where(['id' => $id])->delete();
     }
 
+    /**
+     * @param int $id
+     * 
+     * @return Patient|null
+     */
+    public function byPatientId(int $id): ?Patient
+    {
+        return Patient::with(['person', 'kin', 'medical' => function ($query) { $query->orderBy('type'); }])->where(['id' => $id])->first();
+    }
+
+    /**
+     * @param int $id
+     * 
+     * @return Collection
+     */
+    public function list(): Collection
+    {
+        return Patient::with(['person', 'kin', 'medical' => function ($query) { $query->orderBy('type'); }])->get();
+    }
 }

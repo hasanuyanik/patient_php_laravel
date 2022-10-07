@@ -23,4 +23,12 @@ class Medical extends Model
         'start_date',
         'end_date'
     ];
+
+    /**
+     * Get the user in the organization
+     */
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
 }
