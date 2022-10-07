@@ -216,6 +216,8 @@ class PatientController extends Controller
         }
 
         DB::commit();
+
+        return response()->json(['status' => 'Json file imported.']);
     }
 
     /**

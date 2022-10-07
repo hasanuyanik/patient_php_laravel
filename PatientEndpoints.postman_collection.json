@@ -1,0 +1,753 @@
+{
+	"info": {
+		"_postman_id": "aceeb1c1-1712-4331-b544-e5adc1af9fc9",
+		"name": "PatientEndpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16964067"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Hasan\",\r\n    \"email\" : \"abc@c.com\",\r\n    \"password\" : \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/register",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"abc@c.com\",\r\n    \"password\" : \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/login",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "Medical",
+					"item": [
+						{
+							"name": "create'Conditions'",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"patient_id\" : \"1\",\r\n    \"name\" : \"Allergic cough\",\r\n    \"notes\" : \"Cough details\",\r\n    \"type\" : \"Conditions\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/api/medical/create",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"api",
+										"medical",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create'Alergies'",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"patient_id\" : \"1\",\r\n    \"name\" : \"Gluten\",\r\n    \"notes\" : \"Gluten details\",\r\n    \"type\" : \"Alergies\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/api/medical/create",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"api",
+										"medical",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create'Medication'",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"patient_id\" : \"1\",\r\n    \"name\" : \"Amlodipine 5mg Tab\",\r\n    \"type\" : \"Medication\",\r\n    \"start_date\" : \"2014-06-04 00:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/api/medical/create",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"api",
+										"medical",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASEURL}}/api/medical/1",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"api",
+										"medical",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"patient_id\" : \"1\",\r\n    \"name\" : \"Allergic cough\",\r\n    \"notes\" : \"Cough det\",\r\n    \"type\" : \"Conditions\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/api/medical/update/2",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"api",
+										"medical",
+										"update",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASEURL}}/api/medical/delete/6",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"api",
+										"medical",
+										"delete",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Person",
+					"item": [
+						{
+							"name": "Kin",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id_card\" : \"1DSA21\",\r\n    \"kin_id_card\" : \"1DSA23\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASEURL}}/api/kin/create",
+											"host": [
+												"{{BASEURL}}"
+											],
+											"path": [
+												"api",
+												"kin",
+												"create"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id_card\" : \"1DSA21\",\r\n    \"kin_id_card\" : \"1DSA25\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASEURL}}/api/kin/delete",
+											"host": [
+												"{{BASEURL}}"
+											],
+											"path": [
+												"api",
+												"kin",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getByIdCard",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BASEURL}}/api/kin/1DSA25",
+											"host": [
+												"{{BASEURL}}"
+											],
+											"path": [
+												"api",
+												"kin",
+												"1DSA25"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getByKinIdCard",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{BASEURL}}/api/kin/k/1DSA25",
+											"host": [
+												"{{BASEURL}}"
+											],
+											"path": [
+												"api",
+												"kin",
+												"k",
+												"1DSA25"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id_card\" : \"1DSA23\",\r\n    \"gender\" : \"female\",\r\n    \"name\" : \"Sümeyye\",\r\n    \"surname\" : \"UYANIK\",\r\n    \"date_of_birth\" : \"1995-01-06\",\r\n    \"address\" : \"Tuna Mahallesi...\",\r\n    \"post_code\" : \"34225\",\r\n    \"contact_number_1\" : \"05554443322\",\r\n    \"contact_number_2\" : \"05432221100\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/api/person/create",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"api",
+										"person",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id_card\" : \"1DSA21\",\r\n    \"gender\" : \"male\",\r\n    \"name\" : \"Hasan\",\r\n    \"surname\" : \"UYANIKLM\",\r\n    \"date_of_birth\" : \"1995-01-06\",\r\n    \"address\" : \"Tuna Mahallesi...\",\r\n    \"post_code\" : \"34225\",\r\n    \"contact_number_1\" : \"05554443322\",\r\n    \"contact_number_2\" : \"05432221100\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/api/person/update/1",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"api",
+										"person",
+										"update",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASEURL}}/api/person/delete/1",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"api",
+										"person",
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASEURL}}/api/person/1DSA21",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"api",
+										"person",
+										"1DSA21"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "import",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patient",
+									"type": "file",
+									"src": "/C:/Users/hasan/Downloads/patient.json"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/patient/import",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"patient",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/api/patient/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"patient",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_card\" : \"1DSA23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/patient/create",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"patient",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_card\" : \"1DSA25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/patient/update/4",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"patient",
+								"update",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/api/patient/delete/4",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"patient",
+								"delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/api/patient/list",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"patient",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "1|tZBwkjuZGQ7oDWrRUF3Vbv0HoDlHAaAJmM52mSgY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
